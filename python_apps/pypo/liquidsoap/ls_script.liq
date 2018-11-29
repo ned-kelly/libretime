@@ -307,15 +307,15 @@ else
     s
 end
 
-s = register_flow(
-  radio="Mixtape Underground",
-  website="https://radio.nedved.com.au/",
-  description="House Music - Non-stop & commercial free, from the best DJ's & Producers on the globe!",
-  genre="House",
-  user="",
-  password="",
-  streams=[("mp3/256k","http://radio.nedved.com.au:35112/256k")],
-  s)
+#s = register_flow(
+#  radio="Your Station Name",
+#  website="https://radio.nedved.com.au/",
+#  description="House Music - Non-stop & commercial free, from the best DJ's & Producers on the globe!",
+#  genre="House",
+#  user="",
+#  password="",
+#  streams=[("mp3/256k","http://radio.nedved.com.au:35112/256k")],
+#  s)
 
 
 # Attach a skip command to the source s:
