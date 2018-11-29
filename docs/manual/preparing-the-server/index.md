@@ -1,6 +1,6 @@
-The following instructions assume that you have root access (**sudo** on most distributions) to a GNU/Linux server, and are familiar with basic command line tasks. Experienced system administrators may prefer to skip to [Expert install](../expert-install/) in the appendix of manual after having prepared a server with the needed dependencies show below.
+The following instructions assume that you have root access (**sudo** on most distributions) to a GNU/Linux server, and are familiar with basic command line tasks. 
 
-The recommended Libretime server platform is Ubuntu 16.04 LTS (Xenial Xerus), or Ubuntu 14.04.5 LTS (Trusty Tahr). Debian 9 'stretch' and CentOS 7 are also supported. Users of other GNU/Linux distributions may be able to adapt these instructions to suit their needs.
+The recommended Libretime server platform is Ubuntu 16.04 LTS (Xenial Xerus).
 
 The server should have at least a 1GHz processor and 1GB of RAM, preferably 2GB RAM or more. If you are using a desktop environment and web browser directly on the server you should install at least 2GB RAM, to avoid swapping to disk.
 
@@ -234,17 +234,7 @@ and then run the command (as root):
 
 This should make sure that **rabbitmq-server** starts after the next reboot.
 
-libav on Debian squeeze and .m4a files
---------------------------------------
-
-The version of libav shipped with Debian 6.0 'squeeze' is known to cause problems when Airtime analyses .m4a files containing the AAC codec for silence, using Silan (see <https://github.com/x42/silan/issues/2>). It is recommended that Debian servers are upgraded to the current stable 'wheezy' 7.2 release. As a short-term measure, updated libav packages from the squeeze-backports repository can be used to work around this problem. This work-around is only required if you do not wish to upgrade to 'wheezy' yet, but have AAC codec .m4a files in your Airtime library.
-
 Mail server
 -----------
 
 If you wish Airtime to be able to send password reminder emails to your staff users, the server can have an SMTP program installed, such as the **postfix** package in Debian or Ubuntu. For configuration options, refer to the documentation for your mail server of choice. Alternatively, you can specify an external SMTP server in the **Preferences** page on Airtime's **System** menu.
-
-Proceed to installation
------------------------
-
-Now your server should be ready for Airtime to be installed. Depending on your requirements, you should now proceed to either the chapter *Easy setup*, the chapter *Automated installation,* the chapter *Manual installation* or the *Expert install* appendix.

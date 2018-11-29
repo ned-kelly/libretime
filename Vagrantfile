@@ -38,11 +38,17 @@ Vagrant.configure("2") do |config|
   installer_args="--force --in-place --verbose --postgres --apache --icecast "
 
   # define all the OS boxes we support
+  config.vm.define "ubuntu-bionic" do |os|
+    os.vm.box = "bento/ubuntu-18.04"
+    provision_libretime(os, "ubuntu.sh", installer_args)
+  end
   config.vm.define "ubuntu-xenial" do |os|
     os.vm.box = "bento/ubuntu-16.04"
     provision_libretime(os, "ubuntu.sh", installer_args)
   end
   config.vm.define "ubuntu-trusty" do |os|
+    STDERR.puts 'WARNING: The "ubuntu-trusty" option is deprecated. Please migrate to "ubuntu-bionic".'
+    STDERR.puts
     os.vm.box = "bento/ubuntu-14.04"
     provision_libretime(os, "ubuntu.sh", installer_args)
   end
@@ -52,12 +58,6 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "debian-stretch" do |os|
     os.vm.box = "bento/debian-9.2"
-    provision_libretime(os, "debian.sh", installer_args)
-  end
-  config.vm.define "debian-wheezy" do |os|
-    STDERR.puts 'WARNING: The "debian-wheezy" option is deprecated. Please migrate to "debian-stretch".'
-    STDERR.puts
-    os.vm.box = "bento/debian-7.11"
     provision_libretime(os, "debian.sh", installer_args)
   end
   config.vm.define "centos" do |os|
