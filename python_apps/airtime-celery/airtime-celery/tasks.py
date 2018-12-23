@@ -167,10 +167,9 @@ def podcast_download(id, url, callback_url, api_key, podcast_name, album_overrid
                 logger.debug('podcast_download loaded mp3 {0}'.format(audiofile.name))
 
                 # replace album title as needed
-                m = podcast_override_album(m, podcast_name, album_override)
-
-                m.save()
-                filetypeinfo = m.pprint()
+                metadata_audiofile = podcast_override_album(metadata_audiofile, podcast_name, album_override)
+                metadata_audiofile.save()
+                filetypeinfo = metadata_audiofile.pprint()
                 logger.info('filetypeinfo is {0}'.format(filetypeinfo.encode('ascii', 'ignore')))
                 re = requests.post(callback_url, files={'file': (filename, open(audiofile.name, 'rb'))}, auth=requests.auth.HTTPBasicAuth(api_key, ''))
         re.raise_for_status()
